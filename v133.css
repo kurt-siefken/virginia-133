@@ -1,0 +1,102 @@
+
+
+body {
+	font-family: 'Gabarito';
+	font-size: 26px;
+	background-color: #FBF9EA;
+	border: 0px solid red;
+	margin: 0px;
+	padding: 0px;
+	color: #044772;
+}
+
+
+a {text-decoration: none;}
+p {color: #044772;}
+
+
+
+.topbars {
+	position: relative;
+overflow-x: hidden;
+height: 140px;
+}
+
+.topbars div {
+	height: 30px;
+	width: 110%;
+	transform: rotate(-3deg);
+	margin-left: -3px;
+
+}
+
+.topbars div:nth-child(1) {background-color: #044772; transform: rotate(0deg); z-index: 1; position: absolute; height: 50px;}
+.topbars div:nth-child(2) {background-color: #044772; position: relative;}
+.topbars div:nth-child(3) {background-color: #429dd8; z-index: 5; position: relative;}
+.topbars div:nth-child(4) {background-color: #bde1f8; z-index: 7; position: relative;}
+
+
+
+/*-----------------------------------------*/
+
+.hero-shell {display: flex; max-width: 800px; margin: 40px auto;}
+.hero-text, .hero-cover {width: 50%;}
+
+.book-cover {max-width: 300px; transform: rotate(3deg);}
+
+.hero-text p {max-width: 300px;}
+.hero-text1 {text-align: left; margin-bottom: 40px;}
+.hero-text2 {text-align: right;}
+.hero-title {font-weight: bold; font-size: 36px; text-transform: uppercase; border-bottom: 2px solid #044772; padding-bottom: 10px; text-align: center;}
+.hero-number{font-size: 32px; color: #429dd8; font-weight: 600; text-transform: uppercase; display: inline-block; line-height: 32px;}
+
+.hero-arrow {text-align: right; margin-left: 60px; margin-top: -20px;}
+.hero-arrow img {width: 120px;  transform: rotate(-20deg);}
+
+
+@media screen and (max-width: 900px) {
+.hero-shell {flex-direction: column; margin: 0px auto;}
+.hero-arrow {display: none;}
+.hero-text p {max-width: 100%; text-align: center;}
+.hero-text, .hero-cover {width: 90%; margin: auto; text-align: center;}
+}
+
+/*-----------------------------------------*/
+
+.virginia-divider {
+	margin: 120px auto 80px auto;
+	display: block;
+	text-align: center;
+	width: 90%;
+	max-width: 500px;
+	border-top: 2px dotted #044772;
+
+}
+
+.virginia-divider img {width: 100px; margin-top: -30px; background-color: #FBF9EA; padding: 0px 20px 0px 20px;}
+
+
+/*-----------------------------------------*/
+
+.checklist-shell {max-width: 1000px; width: 90%; margin: auto; margin-bottom: 50px;}
+
+.checklist-title {display: flex; justify-content: space-between; align-items: center;}
+.checklist-list {font-size: 16px; line-height: 22px; column-count: 5; color: #999;}
+.checklist-list > div:hover {cursor: pointer;}
+.checklist-on {color: #044772; font-weight: 900;}
+
+.counterdiv {position: relative}
+
+.checklist-progress {border: 2px solid #044772; border-radius: 20px; width: 200px; text-align: center; font-size: 22px; position: relative; height: 35px; z-index: 10; display: flex; align-items: center; justify-content: center; overflow: hidden;}
+#checklist-progresson {position: absolute; left: 0px; background-color: #bde1f8; height: 45px; z-index:1; width: 0px;}
+
+.rollover:hover {cursor: pointer;}
+
+@media screen and (max-width: 900px) {
+.checklist-title {flex-direction: column;}
+.checklist-list {column-count: 3;}
+.checklist-progress {height: 25px; margin-bottom: 20px; font-size: 18px;}
+.checklist-list {font-size: 13px;}
+}
+
+

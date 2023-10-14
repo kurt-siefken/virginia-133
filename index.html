@@ -1,0 +1,332 @@
+<head>
+<title>The Virginia 133 - Your Guide to Visiting Every City and County in Virginia</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;600;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="v133.css">
+<link rel="icon" type="image/x-icon" href="favicon.png">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+function visited(loc) {
+	document.getElementById("check-"+loc).classList.toggle("checklist-on");
+
+	var numchecked = (document.getElementById("checkedon-number").innerHTML) * 1;
+	
+	if (document.getElementById("check-"+loc).classList.contains('checklist-on')) {
+		numchecked = numchecked + 1;
+		document.getElementById("checkedon-number").innerHTML = numchecked;
+		UpdateURL(loc, '1');
+	} else {
+		numchecked = numchecked - 1;
+		document.getElementById("checkedon-number").innerHTML = numchecked;
+		UpdateURL(loc, '0');
+	}
+
+	var numpercent = (numchecked * 100)/133
+	document.getElementById("checkedon-percent").innerHTML = numpercent.toFixed(1);
+	document.getElementById("checklist-progresson").style.width = numpercent + "%";
+
+
+}
+
+
+/*---------------- CLEARS ALL CHECKED ITEMS ----------------------*/
+
+function clearall() {
+
+	const divs = document.querySelectorAll('.checklist-on');
+	for (const div of divs) {
+  		div.classList.toggle("checklist-on");
+	}
+	document.getElementById("checkedon-number").innerHTML = "0";
+	document.getElementById("checkedon-percent").innerHTML = "0";
+	document.getElementById("checklist-progresson").style.width =  "0px";
+	window.history.replaceState('', 'The Virginia 133', 'index.html');
+}
+
+
+/*---------------------- UPDATES URL -------------------------*/
+
+function UpdateURL(loc, dir) {
+
+	var KeepVisited = document.getElementById("KeepVisited").innerHTML;
+
+	if (dir == "1") {KeepVisited += loc + ",";}
+	if (dir == "0") {KeepVisited = KeepVisited.replace(loc + ",", "");}
+
+
+	document.getElementById("KeepVisited").innerHTML = KeepVisited;
+
+
+	KeepVisited = KeepVisited.substring(0, KeepVisited.length - 1);
+	window.history.replaceState('', 'The Virginia 133', 'index.html?vcc=' + KeepVisited);
+}
+
+
+/*----------------- COPIES URL TO CLIPBOARD ----------------------*/
+
+function CopyURL() {
+var inputc = document.body.appendChild(document.createElement("input"));
+inputc.value = window.location.href;
+inputc.focus();
+inputc.select();
+document.execCommand('copy');
+inputc.parentNode.removeChild(inputc);
+alert("The direct link has been copied to your clipboard.");
+}
+
+
+/*--------------- PARSES AND POPULATES FROM URL-----------------*/
+
+function CheckURL() {
+
+
+var cdone = getParameterByName('vcc')
+
+if (cdone != '' && cdone != null) {
+	var ar=cdone.split(",");
+	for (let i = 0; i < ar.length; i++) {
+
+		visited(ar[i]);
+	}
+document.getElementById('v133-Checklist').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+}
+
+/*--------------- GETS VARIABLES FROM URL -----------------*/
+
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+
+</script>
+
+
+</head>
+
+<body onload="CheckURL()">
+
+<div class="pagestructure">
+
+
+<div class="topbars">
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="hero-shell">
+	
+<div class="hero-text">
+<p class="hero-title">The Virginia 133</p>
+<p class="hero-text1">There are <span class="hero-number">95 counties</span> and <span class="hero-number">38 cities</span> in Virginia.</p>
+<p class="hero-text2">This book is your guide to visiting them all.</p>
+<p class="hero-arrow"><img src="lightblue-arrow.png"></p>
+</div>
+
+<div class="hero-cover">
+<img src="virginia133-cover.jpg" class="book-cover">
+</div>
+
+
+</div>
+
+
+
+<!----------------------------------------------->
+
+
+
+<div class="virginia-divider">
+<img src="virginia.png">
+</div>
+
+
+<!----------------------------------------------->
+
+<div class="checklist-shell">
+
+<div class="checklist-title" id="v133-Checklist">
+<h3>How many of the Virginia 133 have you been to?</h3>
+
+
+<div class="counterdiv">
+	<div style="position: absolute; top: -20px; font-size: 12px; width: 200px; text-align: center;">
+	<span  class="rollover" onclick="clearall();">Clear all</span>
+	<span style="margin: 0px 10px;">&middot;</span> 
+	<span class="rollover" onclick="CopyURL()">Copy URL</span>
+	</div>
+	<div class="checklist-progress">
+	<div id="checklist-progresson">&nbsp;</div>	
+	<div style="z-index:10; position: relative;"><span id="checkedon-number">0</span>/133
+	(<span id="checkedon-percent">0</span>%)</div>
+</div>
+</div>
+
+</div>
+
+<div class="checklist-list">
+<div id="check-acc" onclick="visited('acc')">Accomack County</div>
+<div id="check-alb" onclick="visited('alb')">Albemarle County</div>
+<div id="check-ale" onclick="visited('ale')">Alexandria</div>
+<div id="check-all" onclick="visited('all')">Alleghany County</div>
+<div id="check-ame" onclick="visited('ame')">Amelia County</div>
+<div id="check-amh" onclick="visited('amh')">Amherst County</div>
+<div id="check-app" onclick="visited('app')">Appomattox County</div>
+<div id="check-arl" onclick="visited('arl')">Arlington County</div>
+<div id="check-aug" onclick="visited('aug')">Augusta County</div>
+<div id="check-bat" onclick="visited('bat')">Bath County</div>
+<div id="check-bed" onclick="visited('bed')">Bedford County</div>
+<div id="check-bla" onclick="visited('bla')">Bland County</div>
+<div id="check-bot" onclick="visited('bot')">Botetourt County</div>
+<div id="check-bri" onclick="visited('bri')">Bristol</div>
+<div id="check-bru" onclick="visited('bru')">Brunswick County</div>
+<div id="check-buc" onclick="visited('buc')">Buchanan County</div>
+<div id="check-buk" onclick="visited('buk')">Buckingham County</div>
+<div id="check-bue" onclick="visited('bue')">Buena Vista</div>
+<div id="check-cam" onclick="visited('cam')">Campbell County</div>
+<div id="check-car" onclick="visited('car')">Caroline County</div>
+<div id="check-cal" onclick="visited('cal')">Carroll County</div>
+<div id="check-ccc" onclick="visited('ccc')">Charles City County</div>
+<div id="check-cha" onclick="visited('cha')">Charlotte County</div>
+<div id="check-cho" onclick="visited('cho')">Charlottesville</div>
+<div id="check-che" onclick="visited('che')">Chesapeake</div>
+<div id="check-chs" onclick="visited('chs')">Chesterfield County</div>
+<div id="check-cla" onclick="visited('cla')">Clarke County</div>
+<div id="check-col" onclick="visited('col')">Colonial Heights</div>
+<div id="check-cov" onclick="visited('cov')">Covington</div>
+<div id="check-cra" onclick="visited('cra')">Craig County</div>
+<div id="check-cul" onclick="visited('cul')">Culpeper County</div>
+<div id="check-cub" onclick="visited('cub')">Cumberland County</div>
+<div id="check-dan" onclick="visited('dan')">Danville</div>
+<div id="check-dic" onclick="visited('dic')">Dickenson County</div>
+<div id="check-din" onclick="visited('din')">Dinwiddie County</div>
+<div id="check-emp" onclick="visited('emp')">Emporia</div>
+<div id="check-ess" onclick="visited('ess')">Essex County</div>
+<div id="check-fax" onclick="visited('fax')">Fairfax</div>
+<div id="check-fxc" onclick="visited('fxc')">Fairfax County</div>
+<div id="check-fal" onclick="visited('fal')">Falls Church</div>
+<div id="check-faq" onclick="visited('faq')">Fauquier County</div>
+<div id="check-flo" onclick="visited('flo')">Floyd County</div>
+<div id="check-flu" onclick="visited('flu')">Fluvanna County</div>
+<div id="check-fra" onclick="visited('fra')">Franklin</div>
+<div id="check-frc" onclick="visited('frc')">Franklin County</div>
+<div id="check-fre" onclick="visited('fre')">Frederick County</div>
+<div id="check-frd" onclick="visited('frd')">Fredericksburg</div>
+<div id="check-glx" onclick="visited('glx')">Galax</div>
+<div id="check-gil" onclick="visited('gil')">Giles County</div>
+<div id="check-glu" onclick="visited('glu')">Gloucester County</div>
+<div id="check-goo" onclick="visited('goo')">Goochland County</div>
+<div id="check-gry" onclick="visited('gry')">Grayson County</div>
+<div id="check-gre" onclick="visited('gre')">Greene County</div>
+<div id="check-gvl" onclick="visited('gvl')">Greensville County</div>
+<div id="check-hal" onclick="visited('hal')">Halifax County</div>
+<div id="check-ham" onclick="visited('ham')">Hampton</div>
+<div id="check-han" onclick="visited('han')">Hanover County</div>
+<div id="check-har" onclick="visited('har')">Harrisonburg</div>
+<div id="check-hco" onclick="visited('hco')">Henrico County</div>
+<div id="check-hry" onclick="visited('hry')">Henry County</div>
+<div id="check-hil" onclick="visited('hil')">Highland County</div>
+<div id="check-hop" onclick="visited('hop')">Hopewell</div>
+<div id="check-isl" onclick="visited('isl')">Isle of Wight County</div>
+<div id="check-jam" onclick="visited('jam')">James City County</div>
+<div id="check-kqc" onclick="visited('kqc')">King and Queen County</div>
+<div id="check-kgc" onclick="visited('kgc')">King George County</div>
+<div id="check-kwc" onclick="visited('kwc')">King William County</div>
+<div id="check-lan" onclick="visited('lan')">Lancaster County</div>
+<div id="check-lee" onclick="visited('lee')">Lee County</div>
+<div id="check-lex" onclick="visited('lex')">Lexington</div>
+<div id="check-lou" onclick="visited('lou')">Loudoun County</div>
+<div id="check-lsa" onclick="visited('lsa')">Louisa County</div>
+<div id="check-lun" onclick="visited('lun')">Lunenburg County</div>
+<div id="check-lyn" onclick="visited('lyn')">Lynchburg</div>
+<div id="check-mad" onclick="visited('mad')">Madison County</div>
+<div id="check-man" onclick="visited('man')">Manassas</div>
+<div id="check-mnp" onclick="visited('mnp')">Manassas Park</div>
+<div id="check-mar" onclick="visited('mar')">Martinsville</div>
+<div id="check-mat" onclick="visited('mat')">Mathews County</div>
+<div id="check-mek" onclick="visited('mek')">Mecklenburg County</div>
+<div id="check-mid" onclick="visited('mid')">Middlesex County</div>
+<div id="check-mon" onclick="visited('mon')">Montgomery County</div>
+<div id="check-nel" onclick="visited('nel')">Nelson County</div>
+<div id="check-nkc" onclick="visited('nkc')">New Kent County</div>
+<div id="check-npn" onclick="visited('npn')">Newport News</div>
+<div id="check-nfk" onclick="visited('nfk')">Norfolk</div>
+<div id="check-noc" onclick="visited('noc')">Northampton County</div>
+<div id="check-num" onclick="visited('num')">Northumberland County</div>
+<div id="check-nor" onclick="visited('nor')">Norton</div>
+<div id="check-not" onclick="visited('not')">Nottoway County</div>
+<div id="check-ora" onclick="visited('ora')">Orange County</div>
+<div id="check-pag" onclick="visited('pag')">Page County</div>
+<div id="check-pat" onclick="visited('pat')">Patrick County</div>
+<div id="check-pet" onclick="visited('pet')">Petersburg</div>
+<div id="check-pit" onclick="visited('pit')">Pittsylvania County</div>
+<div id="check-poq" onclick="visited('poq')">Poquoson</div>
+<div id="check-por" onclick="visited('por')">Portsmouth</div>
+<div id="check-pow" onclick="visited('pow')">Powhatan County</div>
+<div id="check-ped" onclick="visited('ped')">Prince Edward County</div>
+<div id="check-pgc" onclick="visited('pgc')">Prince George County</div>
+<div id="check-pwc" onclick="visited('pwc')">Prince William County</div>
+<div id="check-pul" onclick="visited('pul')">Pulaski County</div>
+<div id="check-rad" onclick="visited('rad')">Radford</div>
+<div id="check-rap" onclick="visited('rap')">Rappahannock County</div>
+<div id="check-ric" onclick="visited('ric')">Richmond</div>
+<div id="check-rcc" onclick="visited('rcc')">Richmond County</div>
+<div id="check-roa" onclick="visited('roa')">Roanoke</div>
+<div id="check-rnc" onclick="visited('rnc')">Roanoke County</div>
+<div id="check-rkb" onclick="visited('rkb')">Rockbridge County</div>
+<div id="check-rkh" onclick="visited('rkh')">Rockingham County</div>
+<div id="check-rus" onclick="visited('rus')">Russell County</div>
+<div id="check-sal" onclick="visited('sal')">Salem</div>
+<div id="check-sco" onclick="visited('sco')">Scott County</div>
+<div id="check-she" onclick="visited('she')">Shenandoah County</div>
+<div id="check-smy" onclick="visited('smy')">Smyth County</div>
+<div id="check-sou" onclick="visited('sou')">Southampton County</div>
+<div id="check-spt" onclick="visited('spt')">Spotsylvania County</div>
+<div id="check-stf" onclick="visited('stf')">Stafford County</div>
+<div id="check-sta" onclick="visited('sta')">Staunton</div>
+<div id="check-suf" onclick="visited('suf')">Suffolk</div>
+<div id="check-sur" onclick="visited('sur')">Surry County</div>
+<div id="check-sus" onclick="visited('sus')">Sussex County</div>
+<div id="check-taz" onclick="visited('taz')">Tazewell County</div>
+<div id="check-vrb" onclick="visited('vrb')">Virginia Beach</div>
+<div id="check-war" onclick="visited('war')">Warren County</div>
+<div id="check-was" onclick="visited('was')">Washington County</div>
+<div id="check-way" onclick="visited('way')">Waynesboro</div>
+<div id="check-wes" onclick="visited('wes')">Westmoreland County</div>
+<div id="check-wil" onclick="visited('wil')">Williamsburg</div>
+<div id="check-win" onclick="visited('win')">Winchester</div>
+<div id="check-wis" onclick="visited('wis')">Wise County</div>
+<div id="check-wyt" onclick="visited('wyt')">Wythe County</div>
+<div id="check-yor" onclick="visited('yor')">York County</div>
+
+<div style="display: none;" id="KeepVisited"></div>
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+</body>
