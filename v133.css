@@ -40,25 +40,34 @@ height: 140px;
 /*-----------------------------------------*/
 
 .hero-shell {display: flex; max-width: 800px; margin: 40px auto;}
-.hero-text, .hero-cover {width: 50%;}
+.hero-text {width: 400px;}
+.hero-cover {width: 400px;}
 
-.book-cover {max-width: 300px; transform: rotate(3deg);}
+.hero-cover {text-align: center;}
+.book-cover {max-width: 300px; transform: rotate(3deg); }
 
-.hero-text p {max-width: 300px;}
+.hero-text {margin-top: -30px;}
+.hero-text p {max-width: 350px;}
 .hero-text1 {text-align: left; margin-bottom: 40px;}
 .hero-text2 {text-align: right;}
-.hero-title {font-weight: bold; font-size: 36px; text-transform: uppercase; border-bottom: 2px solid #044772; padding-bottom: 10px; text-align: center;}
+.hero-title {font-weight: bold; font-size: 42px; text-transform: uppercase; border-bottom: 2px solid #044772; padding-bottom: 10px; text-align: center;}
 .hero-number{font-size: 32px; color: #429dd8; font-weight: 600; text-transform: uppercase; display: inline-block; line-height: 32px;}
 
 .hero-arrow {text-align: right; margin-left: 60px; margin-top: -20px;}
-.hero-arrow img {width: 120px;  transform: rotate(-20deg);}
+.hero-arrow img {width: 100px;  transform: rotate(-20deg);}
 
+.hero-buynowbuttons {display: flex; width: 90%; max-width: 600px; justify-content: space-around; border: 3px solid #ccc; position: relative; padding: 20px; margin: auto; margin-top: 80px; border-radius: 5px;}
+.buynow-button {width: 220px; display: block; opacity: .5;}
+.coming-soon {position: absolute; margin-top: -35px; background-color: #FBF9EA; padding: 0px 20px; font-size: 22px; text-align: center;}
 
 @media screen and (max-width: 900px) {
 .hero-shell {flex-direction: column; margin: 0px auto;}
 .hero-arrow {display: none;}
 .hero-text p {max-width: 100%; text-align: center;}
 .hero-text, .hero-cover {width: 90%; margin: auto; text-align: center;}
+.hero-buynowbuttons {flex-direction: column; padding: 20px 0px; text-align: center;}
+.buynow-button {margin: 5px auto;}
+.coming-soon {margin-top: -200px}
 }
 
 /*-----------------------------------------*/
@@ -94,7 +103,7 @@ height: 140px;
 
 @media screen and (max-width: 900px) {
 .checklist-title {flex-direction: column;}
-.checklist-list {column-count: 3;}
+.checklist-list {column-count: 2;}
 .checklist-progress {height: 25px; margin-bottom: 20px; font-size: 18px;}
 .checklist-list {font-size: 13px;}
 }
