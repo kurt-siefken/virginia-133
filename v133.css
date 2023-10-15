@@ -18,28 +18,39 @@ p {color: #044772;}
 
 .topbars {
 	position: relative;
-overflow-x: hidden;
-height: 140px;
+	overflow-x: hidden;
+	height: 140px;
 }
 
 .topbars div {
-	height: 30px;
+	height: 20px;
+	transform: rotate(-2deg);
+	font-size: 20px;
+	overflow: hidden;
 	width: 110%;
-	transform: rotate(-3deg);
 	margin-left: -3px;
-
+	position: absolute;
 }
 
-.topbars div:nth-child(1) {background-color: #044772; transform: rotate(0deg); z-index: 1; position: absolute; height: 50px;}
+.topbars div:nth-child(1) {background-color: #044772; transform: rotate(0deg); z-index: 1; position: absolute; height: 30px;}
 .topbars div:nth-child(2) {background-color: #044772; position: relative;}
 .topbars div:nth-child(3) {background-color: #429dd8; z-index: 5; position: relative;}
-.topbars div:nth-child(4) {background-color: #bde1f8; z-index: 7; position: relative;}
+.topbars div:nth-child(4) {background-color: #bde1f8; z-index: 7; position: relative; font-size: 16px; padding: 5px 0px 0px 0px;}
 
+.menudivider {padding: 5px 20px; color: #429dd8; font-size: 16px; }
 
 
 /*-----------------------------------------*/
 
-.hero-shell {display: flex; max-width: 800px; margin: 40px auto;}
+.menu {max-width: 600px; width: 90%; border: 2px solid #666; margin: -30px auto 50px auto; font-size: 14px; display: flex; justify-content: space-around; z-index:80; position: relative; text-align: center;}
+.menu a {color: #666; padding: 5px;}
+@media screen and (max-width: 500px) {
+	.menu{font-size: 12px;}
+}
+
+/*-----------------------------------------*/
+
+.hero-shell {display: flex; max-width: 800px; margin: 0px auto;}
 .hero-text {width: 400px;}
 .hero-cover {width: 400px;}
 
@@ -56,12 +67,12 @@ height: 140px;
 .hero-arrow {text-align: right; margin-left: 60px; margin-top: -20px;}
 .hero-arrow img {width: 100px;  transform: rotate(-20deg);}
 
-.hero-buynowbuttons {display: flex; width: 90%; max-width: 600px; justify-content: space-around; border: 3px solid #ccc; position: relative; padding: 20px; margin: auto; margin-top: 80px; border-radius: 5px;}
-.buynow-button {width: 220px; display: block; opacity: .5;}
+.hero-buynowbuttons {display: flex; width: 90%; max-width: 500px; justify-content: space-around; border: 3px solid #ccc; position: relative; padding: 20px; margin: auto; margin-top: 80px; border-radius: 5px;}
+.buynow-button {width: 180px; display: block; opacity: .5;}
 .coming-soon {position: absolute; margin-top: -35px; background-color: #FBF9EA; padding: 0px 20px; font-size: 22px; text-align: center;}
 
 @media screen and (max-width: 900px) {
-.hero-shell {flex-direction: column; margin: 0px auto;}
+.hero-shell {flex-direction: column; margin-top: -30px;}
 .hero-arrow {display: none;}
 .hero-text p {max-width: 100%; text-align: center;}
 .hero-text, .hero-cover {width: 90%; margin: auto; text-align: center;}
@@ -107,5 +118,31 @@ height: 140px;
 .checklist-progress {height: 25px; margin-bottom: 20px; font-size: 18px;}
 .checklist-list {font-size: 13px;}
 }
+
+
+
+/*-----------------------------------------*/
+
+
+.whats-inside {width: 100%;  background-color: #fff; overflow: auto;}
+.whats-inside-inner {width: 90%;  max-width: 700px; margin: 50px auto;}
+
+
+.inside-title {font-size: 20px;  text-decoration: underline; font-weight: bold;}
+.inside-list {font-size: 22px;  margin: 5px 0px 5px 30px; display: flex;}
+.small-list {font-size: 20px;}
+.checkmark {margin-right: 10px;}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
