@@ -10,29 +10,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
+
+
+
 </head>
 
-<body onload="CheckURL()">
+<body>
 
 <div class="pagestructure">
 
 
 <div class="topbars">
-	<div></div>
-	<div></div>
-	<div></div>
-	<div></div>
+	<div class="header1"></div>
+	<div class="header2"></div>
+	<div class="header3">
+		<div class="menu">
+		<a>Amazon.com (soon)</a>
+		<a>Bookshop.org (soon)</a>
+		<a href="checklist.html">Online Checklist</a>
+		<a href="133-certificate.pdf">Completion Certificate</a>
+		</div>
+	</div>
 </div>
 
 
 
 
-<div class="menu">
-<a>Amazon.com (soon)</a>
-<a>Bookshop.org (soon)</a>
-<a href="checklist.html">Online Checklist</a>
-<a href="133-certificate.pdf">Completion Certificate</a>
-</div>
+
 
 
 <div class="hero-shell">
@@ -120,5 +124,26 @@
 <!----------------------------------------------->
 
 </div>
-<br><br><br><br>
+
+
+
+
+
+<div class="footer3"></div>
+<div class="footer2"></div>
+<div class="footer">
+<div class="footercontent">
+Copyright © <span id="footeryear"></span> Kurt Siefken
+</div>
+</div>
+
+
+
+<script>
+
+var currentYear = new Date().getFullYear();
+document.getElementById("footeryear").innerHTML = currentYear;
+</script>
+
+
 </body>

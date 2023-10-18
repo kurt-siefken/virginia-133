@@ -16,36 +16,24 @@ p {color: #044772;}
 
 
 
-.topbars {
-	position: relative;
-	overflow-x: hidden;
-	height: 140px;
-}
 
-.topbars div {
-	height: 20px;
-	transform: rotate(-2deg);
-	font-size: 20px;
-	overflow: hidden;
-	width: 110%;
-	margin-left: -3px;
-	position: absolute;
-}
 
-.topbars div:nth-child(1) {background-color: #044772; transform: rotate(0deg); z-index: 1; position: absolute; height: 30px;}
-.topbars div:nth-child(2) {background-color: #044772; position: relative;}
-.topbars div:nth-child(3) {background-color: #429dd8; z-index: 5; position: relative;}
-.topbars div:nth-child(4) {background-color: #bde1f8; z-index: 7; position: relative; font-size: 16px; padding: 5px 0px 0px 0px;}
+
+.header1 {background-color: #044772; height: 30px; margin: 0px;}
+.header2 {background-color: #429dd8; height: 30px; margin: 0px;}
+.header3 {background-color: #bde1f8; height: 30px; margin: 0px; margin-bottom: 50px;}
+
 
 .menudivider {padding: 5px 20px; color: #429dd8; font-size: 16px; }
 
 
 /*-----------------------------------------*/
 
-.menu {max-width: 600px; width: 90%; border: 2px solid #666; margin: -30px auto 50px auto; font-size: 14px; display: flex; justify-content: space-around; z-index:80; position: relative; text-align: center;}
-.menu a {color: #666; padding: 5px;}
+.menu {max-width: 800px; width: 95%; margin: auto; font-size: 16px; display: flex; justify-content: space-around; z-index:80; position: relative; text-align: center;}
+.menu a {color: #044772; padding: 5px;}
 @media screen and (max-width: 500px) {
-	.menu{font-size: 12px;}
+	.menu{font-size: 12px; padding: 5px; }
+	.header3 {height: auto;}
 }
 
 /*-----------------------------------------*/
@@ -117,6 +105,7 @@ p {color: #044772;}
 .checklist-list {column-count: 2;}
 .checklist-progress {height: 25px; margin-bottom: 20px; font-size: 18px;}
 .checklist-list {font-size: 13px;}
+.counterdiv {margin: 20px auto;}
 }
 
 
@@ -135,9 +124,13 @@ p {color: #044772;}
 
 
 
+/*-----------------------------------------*/
 
 
-
+.footer3 {background-color: #bde1f8; height: 20px;}
+.footer2 {background-color: #429dd8; height: 20px;}
+.footer {background-color: #044772; color: #fff; font-size: 14px; padding-top: 30px; padding-bottom: 100px;}
+.footercontent{max-width: 800px; width: 90%; margin: auto;}
 
 
 
