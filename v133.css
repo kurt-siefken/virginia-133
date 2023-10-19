@@ -132,7 +132,7 @@ p {color: #044772;}
 .extras-checklist, .extras-certificate {width: 50%; color: #666; font-size: 22px; text-align: center; max-width: 450px;}
 
 
-.extras-checklist img {width: 400px;}
+.extras-checklist img {width: 90%; max-width: 400px;}
 .extras-certificate img {width: 300px;}
 
 
